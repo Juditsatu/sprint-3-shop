@@ -80,7 +80,6 @@ function buy(id) {
     }
     // 2. Add found product to the cartList array
     cartList.push(product);
-    console.log("cart list", cartList)
 }
 
 // Exercise 2
@@ -99,49 +98,19 @@ function calculateTotal() {
 // Exercise 4
 function generateCart() {
     // Using the "cartlist" array that contains all the items in the shopping cart, 
-    // console.log("cartlist", cartList)
-    // console.log("cartlist id", cartList[0].id)
-    // const quantity = {};
-    // for (let i = 0; i < cartList.length; i++) {}
-    // cartList[i].forEach(function (x) {
-    //     quantity[x] = (quantity[x] || 0) +1;
-    // })
-    // console.log(quantity)
-    // cart = [... new Set(cartList)]
-
-    // cart.forEach((element) => {
-    //     element.quantity = 1
-    // });
-    // cart.forEach((x) => {x.quantity = 1});
-    
-    // console.log("cart List", cartList);
-    // for (let i = 0; i < cartList.length; i++) {
-    //     if (cart.length < 0) {
-    //         cart.push(cartList[i]);
-    //         cart.forEach((element) => {element.quantity = 1});
-    //     } else if (cart.includes(cartList[i])) {
-    //         //console.log("??????", cart.products.quantity += 1);
-    //     } else {
-    //         //cart.push(cartList[i]);
-    //     }
-    // }
-
+    // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
+    cart = [];
     for (let i = 0; i < cartList.length; i++) {
-        // if (cart.length == 0) {
-        //     cart.push(cartList[i]);
-        //     cart[i].quantity = 3;
-        // } else {
-            if (!cart.includes(cartList[i])) {
-                console.log("NO ESTA")
-                cart.push(cartList[i]);
-                cart.forEach((element) => {element.quantity = 1});
-            } else {
-               // cart[i].quantity += 1;
-            }
-        //} 
+        if (!cart.includes(cartList[i])) {
+            cartList[i].quantity = 1;
+            cartList[i].subtotal = cartList[i].quantity * cartList[i].price;
+            cart.push(cartList[i]);
+        } else {
+            cartList[i].quantity += 1;
+            cartList[i].subtotal = cartList[i].quantity * cartList[i].price;
+        }
     }
     console.log("cart", cart);
-    // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
 }
 
 // Exercise 5
