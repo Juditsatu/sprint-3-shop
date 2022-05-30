@@ -111,7 +111,6 @@ function generateCart() {
         }
     }
     applyPromotionsCart();
-    console.log("cart", cart);
 }
 
 // Exercise 5
@@ -131,6 +130,14 @@ function applyPromotionsCart() {
 // Exercise 6
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
+    let cartModal = document.querySelector("cart_list");
+    cart.forEach((element) => {
+        let table = document.createElement('tr')
+        let test = document.createElement('th')
+        test.textContent = element.name;
+        console.log(element.name)
+        table.appendChild(test)
+    })
 }
 
 
