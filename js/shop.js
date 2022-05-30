@@ -110,12 +110,22 @@ function generateCart() {
             cartList[i].subtotal = cartList[i].quantity * cartList[i].price;
         }
     }
+    applyPromotionsCart();
     console.log("cart", cart);
 }
 
 // Exercise 5
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id == 1 && cart[i].quantity >= 3) {
+            cart[i].subtotalWithDiscount = cart[i].subtotal - 10;
+        }
+
+        if (cart[i].id == 3 && cart[i].quantity >= 10) {
+            cart[i].subtotalWithDiscount = cart[i].subtotal - cart[i].subtotal * 0.3;
+        }
+    }
 }
 
 // Exercise 6
