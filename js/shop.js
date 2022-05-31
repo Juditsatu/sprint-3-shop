@@ -130,27 +130,47 @@ function applyPromotionsCart() {
 // Exercise 6
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
-    let cartModal = document.querySelector("cart_list");
+    //cleanCartList()
+    const cartList = document.querySelector("#cart_list");
+
     cart.forEach((element) => {
-        let table = document.createElement('tr')
-        let test = document.createElement('th')
-        test.textContent = element.name;
-        console.log(element.name)
-        table.appendChild(test)
+        const table = document.createElement('tr');
+
+        const tableTitle = document.createElement('th');
+        tableTitle.textContent = element.name;
+
+        const tablePrice = document.createElement('td');
+        tablePrice.textContent = element.price;
+        
+        const tableQuantity = document.createElement('td');
+        tableQuantity.textContent = element.quantity;
+        
+        const tableSubtotal = document.createElement('td');
+        tableSubtotal.textContent = element.subtotal;
+
+        cartList.appendChild(table);
+        table.appendChild(tableTitle);
+        table.appendChild(tablePrice);
+        table.appendChild(tableQuantity);
+        table.appendChild(tableSubtotal);
     })
 }
 
+// function cleanCartList() {
+//     let cartList = document.getElementById("#cart_list");
+//     cartList.parentNode.removeChild(cartList); //clean the original shop list
+// }
 
 // ** Nivell II **
 
-// Exercise 7
+// Exercise 8
 function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
 }
 
-// Exercise 8
+// Exercise 9
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
