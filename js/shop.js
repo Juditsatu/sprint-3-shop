@@ -85,19 +85,21 @@ function buy(id) {
 
 // Exercise 2
 function cleanCart() {
-    const cartList = document.querySelector("#cart_list");
-    cartList.innerHTML = "";
+    const cartTable = document.querySelector("#cart_list");
+    cartTable.innerHTML = "";
+    document.getElementById('total_price').innerHTML = 0;
     cart = [];
+    cartList = [];
 }
 
 // Exercise 3
 function calculateTotal() {
     total = 0;
     // Calculate total price of the cart using the "cartList" array
-    for (let i = 0; i < cart.length; i++) {
-        total += cart[i].price;
+    for (let i = 0; i < cartList.length; i++) {
+        total += cartList[i].price;
     }
-    return total;
+    return total.toFixed(2);
 }
 
 // Exercise 4
@@ -135,8 +137,8 @@ function applyPromotionsCart() {
 // Exercise 6
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
-    const cartList = document.querySelector("#cart_list");
-    cartList.innerHTML = "";
+    const cartTable = document.querySelector("#cart_list");
+    cartTable.innerHTML = "";
     const cartTotal = calculateTotal();
 
     cart.forEach((element) => {
@@ -158,12 +160,12 @@ function printCart() {
         tableDiscount.textContent = element.subtotalWithDiscount;
 
         const tableRemove = document.createElement('td');
-        tableRemove.innerHTML = '<button onclick="removeFromCart(id)"><img src="./images/garbage-can.png" height="30px"></button>';
+        tableRemove.innerHTML = '<button class="btn btn-outline-dark" onclick="removeFromCart(id)"><i class="fa fa-trash"></button>';
 
         const tableTotal = document.getElementById('total_price');
         tableTotal.innerHTML = cartTotal;
 
-        cartList.appendChild(table);
+        cartTable.appendChild(table);
         table.appendChild(tableTitle);
         table.appendChild(tablePrice);
         table.appendChild(tableQuantity);
@@ -203,17 +205,21 @@ function addToCart(id) {
 // Exercise 9
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
+    const indexItem = cart.findIndex(item => item.id === id);
+    const indexCartList = cartList.findIndex(item => item.id === id);
+    
     // 2. Add found product to the cartList array
-    let i, product;
-    for (i = 0; i < id; i++) {
-        product = products[i];
+    if (cart[indexItem].quantity == 1) {
+        cart.splice(indexItem, 1);
+        cartList.splice(indexCartList, 1); //Removes the remaining product on the original array
+        document.getElementById('total_price').innerHTML = 0;
+    } else {
+        cart[indexItem].quantity -= 1;
+        cart[indexItem].subtotal -= cart[indexItem].price;
+        cartList.splice(indexCartList, 1); //Also removes on the original array (needed for price update)
+        applyPromotionsCart();
     }
-    const indexItem = cart.findIndex(item => item === product);
-    console.log("?", product)
-    if(cart.includes(product)) {
-        console.log("if")
-    }
-
+    calculateTotal();
 }
 
 function open_modal(){
