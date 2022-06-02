@@ -186,16 +186,20 @@ function addToCart(id) {
         product = products[i];
     }
     cartList.push(product);
-    
+    //Add number to subindex cart
+    const countProduct = document.getElementById('count_product');
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
     const indexItem = cartList.findIndex(item => item === product);
     if (!cart.includes(product)) {
         cartList[indexItem].quantity = 1;
         cartList[indexItem].subtotal = cartList[indexItem].quantity * cartList[indexItem].price;
+        console.log(countProduct.innerHTML)
         cart.push(cartList[indexItem]);
+        countProduct.innerHTML++;
     } else {
         cartList[indexItem].quantity += 1;
         cartList[indexItem].subtotal = cartList[indexItem].quantity * cartList[indexItem].price;
+        countProduct.innerHTML++;
     }
     
     applyPromotionsCart();
@@ -207,16 +211,20 @@ function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     const indexItem = cart.findIndex(item => item.id === id);
     const indexCartList = cartList.findIndex(item => item.id === id);
+    //Add number to subindex cart
+    const countProduct = document.getElementById('count_product');
     
     // 2. Add found product to the cartList array
     if (cart[indexItem].quantity == 1) {
         cart.splice(indexItem, 1);
         cartList.splice(indexCartList, 1); //Removes the remaining product on the original array
         document.getElementById('total_price').innerHTML = 0;
+        countProduct.innerHTML--;
     } else {
         cart[indexItem].quantity -= 1;
         cart[indexItem].subtotal -= cart[indexItem].price;
         cartList.splice(indexCartList, 1); //Also removes on the original array (needed for price update)
+        countProduct.innerHTML--;
         applyPromotionsCart();
     }
     calculateTotal();
