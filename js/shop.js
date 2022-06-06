@@ -126,10 +126,14 @@ function applyPromotionsCart() {
     for (let i = 0; i < cart.length; i++) {
         if (cart[i].id == 1 && cart[i].quantity >= 3) {
             cart[i].subtotalWithDiscount = cart[i].subtotal - 10;
+        } else if (cart[i].id == 1 && cart[i].quantity < 3){
+            cart[i].subtotalWithDiscount = "";
         }
 
         if (cart[i].id == 3 && cart[i].quantity >= 10) {
             cart[i].subtotalWithDiscount = cart[i].subtotal - cart[i].subtotal * 0.3;
+        } else if (cart[i].id == 3 && cart[i].quantity < 10){
+            cart[i].subtotalWithDiscount = "";
         }
     }
 }
@@ -154,15 +158,17 @@ function printCart() {
         tableQuantity.textContent = element.quantity;
         
         const tableSubtotal = document.createElement('td');
-        tableSubtotal.textContent = element.subtotal;
+        tableSubtotal.textContent = element.subtotal.toFixed(2);
         
         const tableDiscount = document.createElement('td');
         tableDiscount.textContent = element.subtotalWithDiscount;
 
         const tableRemove = document.createElement('td');
-        tableRemove.innerHTML = '<button class="btn btn-outline-dark" onclick="removeFromCart(id)"><i class="fa fa-trash"></button>';
+        tableRemove.innerHTML = '<button class="btn btn-outline-dark" onclick="removeFromCart('+element.id+')"><i class="fa fa-trash"></button>';
 
         const tableTotal = document.getElementById('total_price');
+        // let discountTotal = cartTotal - element.subtotalWithDiscount;
+        // let total = cartTotal - discountTotal;
         tableTotal.innerHTML = cartTotal;
 
         cartTable.appendChild(table);
@@ -193,12 +199,12 @@ function addToCart(id) {
     if (!cart.includes(product)) {
         cartList[indexItem].quantity = 1;
         cartList[indexItem].subtotal = cartList[indexItem].quantity * cartList[indexItem].price;
-        console.log(countProduct.innerHTML)
         cart.push(cartList[indexItem]);
         countProduct.innerHTML++;
     } else {
         cartList[indexItem].quantity += 1;
         cartList[indexItem].subtotal = cartList[indexItem].quantity * cartList[indexItem].price;
+        cartList[indexItem].subtotal;
         countProduct.innerHTML++;
     }
     
@@ -228,6 +234,8 @@ function removeFromCart(id) {
         applyPromotionsCart();
     }
     calculateTotal();
+    open_modal();
+    printCart();
 }
 
 function open_modal(){

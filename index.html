@@ -42,11 +42,34 @@
       "
   >
     <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+      <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
+          <div>
+            <i class="fa fa-envelope mx-2"></i>
+            <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@itacademy.com</a>
+            <i class="fa fa-phone mx-2"></i>
+            <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+          </div>
+          <div>
+            <a class="text-light" href="https://www.facebook.com/barcelonactiva/" target="_blank" rel="sponsored"><i
+                class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+            <a class="text-light" href="https://www.instagram.com/barcelonactiva/" target="_blank"><i
+                class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+            <a class="text-light" href="https://twitter.com/barcelonactiva" target="_blank"><i
+                class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+            <a class="text-light" href="https://www.linkedin.com/company/barcelona-activa/" target="_blank"><i
+                class="fab fa-linkedin fa-sm fa-fw"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
     <nav
-      class="navbar py-3 py-lg-0 navbar-light bg-light navbar-expand-lg"
+      class="navbar navbar-expand-lg navbar-light shadow"
       id="navbar-example2"
     >
-      <div class="container d-flex">
+      <div class="container d-flex justify-content-between align-items-center">
+        
         <a class="navbar-brand" href="#!">ShopNow</a>
         <div class="d-flex flex-row order-lg-last align-items-center">
           <button
@@ -62,29 +85,59 @@
           <ul
             class="navbar-nav me-3 me-lg-0 d-flex flex-row align-items-center"
           >
+          <div class="navbar align-self-center d-flex">
+            <div class="d-lg-none flex-sm-fill mt-3 mb-4 mx-5 col-7 col-sm-auto pr-3">
+              <div class="input-group">
+                <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                <div class="input-group-text">
+                  <i class="fa fa-fw fa-search"></i>
+                </div>
+              </div>
+            </div>
+            <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+              <i class="fa fa-fw fa-search text-dark mr-2"></i>
+            </a>
             <li class="dropdown search-dropdown nav-item py-lg-3">
               <a
                 href="javascript:void(0)"
-                class="btn btn-outline-dark flex-center"
+                class="nav-icon position-relative text-decoration-none"
                 type="button"
                 data-bs-toggle="modal"
                 data-bs-target="#cartModal"
                 onclick="open_modal()"
                 data-bs-auto-close="outside"
               >
-                <i class="fas fa-shopping-cart me-1"></i> Cart
+              
+                <i class="fas fa-shopping-cart me-1 mx-3"></i>
                 <span
-                  class="badge bg-dark text-white ms-1 rounded-pill"
+                  class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
                   id="count_product"
                   >0</span
                 >
               </a>
             </li>
+          </div>
           </ul>
         </div>
-
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="navbar-nav me-auto mb-4 mb-lg-0 ms-lg-5">
+<!-- Modal -->
+<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="w-100 pt-1 mb-5 text-right">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="" method="get" class="modal-content modal-body border-0 p-0">
+          <div class="input-group mb-2">
+              <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+              <button type="submit" class="input-group-text bg-black text-light">
+                  <i class="fa fa-fw fa-search text-white"></i>
+              </button>
+          </div>
+      </form>
+  </div>
+</div>
+        <div id="navbar" class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between">
+          <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+            
             <li class="nav-item">
               <a class="nav-link" href="#grocery"
                 ><i class="fas fa-shopping-basket"></i> Grocery</a
@@ -104,22 +157,81 @@
         </div>
       </div>
     </nav>
-
-    <!-- Header-->
-    <header
-      class="py-5 w-100"
-      >
-      <!-- <img class="img-fluid w-100 " src="./images/wave-haikei.svg" alt="wave"> -->
-
-      <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-          <h1 class="display-4 fw-bolder">IT Academy Shop</h1>
-          <p class="lead fw-normal text-white-50 mb-0">
-            Get up to 50% off Today Only!
-          </p>
-        </div>
+<!-- Start Banner Hero -->
+<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+      <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+      <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+          <div class="container">
+              <div class="row p-5">
+                  <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                      <img class="img-fluid" src="./images/Falling-Confetti-Transparent-Background.png" alt="">
+                  </div>
+                  <div class="col-lg-6 mb-0 d-flex align-items-center">
+                      <div class="text-align-left align-self-center">
+                          <h1 class="h1 text-white fw-bolder"><b>IT Academy</b> Shop</h1>
+                          <h3 class="h2 text-white">Get up to 50% off Today Only!</h3>
+                          <p>
+                              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, cupiditate. Sunt nihil distinctio deserunt? Dignissimos quis nisi est quo velit culpa laborum aliquid perferendis iste. Minima dolores voluptatum cumque eveniet?
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </header>
+      <div class="carousel-item">
+          <div class="container">
+              <div class="row p-5">
+                  <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                      <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
+                  </div>
+                  <div class="col-lg-6 mb-0 d-flex align-items-center">
+                      <div class="text-align-left">
+                        <h1 class="h1 text-white fw-bolder">Lorem ipsum</h1>
+                        <h3 class="h2 text-white">dolor sit amet consectetur,</h3>
+                        <p>
+                          adipisicing elit. Magnam ad quod vitae, earum obcaecati a fuga distinctio quia, 
+                          officia at sapiente sint dolores autem non facere, est consequuntur veniam adipisci?
+                        </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="container">
+              <div class="row p-5">
+                  <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                      <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
+                  </div>
+                  <div class="col-lg-6 mb-0 d-flex align-items-center">
+                      <div class="text-align-left">
+                          <h1 class="h1 text-white fw-bolder">Lorem ipsum</h1>
+                          <h3 class="h2 text-white">dolor sit amet consectetur,</h3>
+                          <p>
+                            adipisicing elit. Magnam ad quod vitae, earum obcaecati a fuga distinctio quia, 
+                            officia at sapiente sint dolores autem non facere, est consequuntur veniam adipisci?
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+      <i class="fas fa-chevron-left"></i>
+  </a>
+  <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+      <i class="fas fa-chevron-right"></i>
+  </a>
+</div>
+<!-- End Banner Hero -->
+
+    
     <!-- Section-->
     <section class="pt-5" id="grocery">
       <h2 class="text-center">
@@ -131,7 +243,7 @@
         >
           <div class="col mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/cooking-oil.png" alt="cooking oil" />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Cooking Oil</h5>
@@ -147,20 +259,13 @@
                   >
                     Add to cart
                   </button>
-				  <button
-					type="button"
-					onclick="removeFromCart(1)"
-					class="btn btn-outline-dark"
-				  >
-				  <i class="fa fa-trash"></i>
-				  </button>
                 </div>
               </div>
             </div>
           </div>
           <div class="col mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/pasta.png" alt="pasta" />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Pasta</h5>
@@ -176,20 +281,13 @@
                   >
                     Add to cart
                   </button>
-				  <button
-					type="button"
-					onclick="removeFromCart(2)"
-					class="btn btn-outline-dark"
-				  >
-				  <i class="fa fa-trash"></i>
-				  </button>
                 </div>
               </div>
             </div>
           </div>
           <div class="col mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/cupcake.png" alt="cupcake" />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Instant cupcake mixture</h5>
@@ -205,12 +303,7 @@
                   >
                     Add to cart
                   </button>
-				  <button
-					type="button"
-					onclick="removeFromCart(3)"
-					class="btn btn-outline-dark"
-				  >
-				  <i class="fa fa-trash"></i>
+			
 				  </button>
                 </div>
               </div>
@@ -227,7 +320,7 @@
         >
           <div class="col mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/all-in.png" alt="all in one" />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">All-in-1</h5>
@@ -243,20 +336,13 @@
                   >
                     Add to cart
                   </button>
-				  <button
-					type="button"
-					onclick="removeFromCart(4)"
-					class="btn btn-outline-dark"
-				  >
-				  <i class="fa fa-trash"></i>
-				  </button>
                 </div>
               </div>
             </div>
           </div>
           <div class="col mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/zero-makeup.png" alt="Zero makeup kit" />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Zero makeup kit</h5>
@@ -272,20 +358,13 @@
                   >
                     Add to cart
                   </button>
-				  <button
-					type="button"
-					onclick="removeFromCart(5)"
-					class="btn btn-outline-dark"
-				  >
-				  <i class="fa fa-trash"></i>
-				  </button>
                 </div>
               </div>
             </div>
           </div>
           <div class="col mb-5">
             <div class="card h-100">
-              <img class="card-img-top" src="./images/product.svg" alt="..." />
+              <img class="card-img-top" src="./images/lip-tint.png" alt="Lip tint" />
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">Lip tints</h5>
@@ -301,13 +380,6 @@
                   >
                     Add to cart
                   </button>
-				  <button
-					type="button"
-					onclick="removeFromCart(6)"
-					class="btn btn-outline-dark"
-				  >
-				  <i class="fa fa-trash"></i>
-				  </button>
                 </div>
               </div>
             </div>
@@ -339,13 +411,6 @@
                   >
                     Add to cart
                   </button>
-				  <button
-					type="button"
-					onclick="removeFromCart(7)"
-					class="btn btn-outline-dark"
-				  >
-				  <i class="fa fa-trash"></i>
-				  </button>
                 </div>
               </div>
             </div>
@@ -368,13 +433,6 @@
                   >
                     Add to cart
                   </button>
-				  <button
-					type="button"
-					onclick="removeFromCart(8)"
-					class="btn btn-outline-dark"
-				  >
-				  <i class="fa fa-trash"></i>
-				  </button>
                 </div>
               </div>
             </div>
@@ -397,13 +455,6 @@
                   >
                     Add to cart
                   </button>
-				  <button
-					type="button"
-					onclick="removeFromCart(9)"
-					class="btn btn-outline-dark"
-				  >
-				  <i class="fa fa-trash"></i>
-				  </button>
                 </div>
               </div>
             </div>
